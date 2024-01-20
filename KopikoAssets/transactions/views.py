@@ -48,6 +48,11 @@ class DepositView(TransactionCreateMixin):
     def get_initial(self):
         initial= {'transaction_type': DEPOSIT}
         return initial
+
+    # get_initial kete diye ei success_url ta use korle kaj hoy
+    def get_success_url(self):
+        print(self.request.path)
+        return self.request.path
     
     def form_valid(self, form):
         
